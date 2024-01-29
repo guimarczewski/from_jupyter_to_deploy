@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./table_produtos.sql:/docker-entrypoint-initdb.d/table_produtos.sql
+      - ./produtos.sql:/docker-entrypoint-initdb.d/produtos.sql
+    environment:
+      POSTGRES_PASSWORD: "minha_senha"
+      POSTGRES_USER: "meu_usuario"
+      POSTGRES_DB: "meu_banco"
+      DB_HOST: "localhost"
+    ports:
+      - "5432:5432"
