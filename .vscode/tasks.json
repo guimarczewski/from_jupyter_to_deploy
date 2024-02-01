@@ -19,7 +19,7 @@
 				"docker-build"
 			],
 			"python": {
-				"file": "API/app/main.py"
+				"file": "streamlit/main.py"
 			}
 		}
 	]

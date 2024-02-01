@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+    build: streamlit
+    ports:
+      - 8501:8501
+    depends_on:
+      - postgres
+      - backend
+    volumes:
+      - ./streamlit:/app
+    restart: always
+    networks:
+      - app
+    container_name: frontend
+
+  postgres:
+    image: postgres
+    volumes:
+      - ./database_test/01-table_produtos.sql:/docker-entrypoint-initdb.d/01-table_produtos.sql
+      - ./database_test/02-produtos.sql:/docker-entrypoint-initdb.d/02-produtos.sql
+    environment:
+      POSTGRES_PASSWORD: "minha_senha"
+      POSTGRES_USER: "meu_usuario"
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - app
+    container_name: database
+
+  backend:
+    build: API
+    ports:
+      - 8000:8000
+    volumes:
+      - ./API:/app
+    restart: always
+    networks:
+      - app
+    container_name: backend
+
+networks:
+  app:
+    driver: bridge
