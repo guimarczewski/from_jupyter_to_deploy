@@ -65,7 +65,7 @@ def main():
     st.dataframe(df)
 
     st.write("Top 5 Produtos (Atualizado):")
-    st.dataframe(df)
+    st.dataframe(df.head(5))
 
     plot_types = ["bar", "line", "scatter", "pie"]
     plot_type = st.selectbox("Selecione o tipo de gráfico", plot_types)

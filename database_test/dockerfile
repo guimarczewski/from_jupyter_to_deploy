@@ -1,0 +1,19 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Copiar arquivos necessários para o diretório de trabalho
+COPY ./requirements.txt /app/requirements.txt
+COPY ./setup_script.py /app/setup_script.py
+
+# Instalar dependências
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar o restante dos arquivos para o diretório de trabalho
+COPY . /app
+
+# Definir a variável de ambiente para o Python não gerar arquivos pycache
+ENV PYTHONDONTWRITEBYTECODE 1
+
+# Comando para iniciar a aplicação
+CMD ["python", "main.py"]
