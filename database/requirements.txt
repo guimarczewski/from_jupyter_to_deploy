@@ -1,0 +1,4 @@
+SQLAlchemy==2.0.25
+sqlalchemy.orm
+python-dotenv==1.0.1
+psycopg2-binary

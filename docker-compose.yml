@@ -14,33 +14,58 @@ services:
     networks:
       - app
     container_name: frontend
+    env_file:
+      - .env
 
   postgres:
     image: postgres
-    volumes:
-      - ./database_test:/app
-#      - ./database_test/01-table_produtos.sql:/docker-entrypoint-initdb.d/01-table_produtos.sql
-#      - ./database_test/02-produtos.sql:/docker-entrypoint-initdb.d/02-produtos.sql
     environment:
       POSTGRES_PASSWORD: "minha_senha"
       POSTGRES_USER: "meu_usuario"
+      POSTGRES_DB: "sales"
     ports:
       - "5432:5432"
     restart: always
     networks:
       - app
     container_name: database
+    env_file:
+      - .env
+
+  setup:
+    build:
+      context: .
+      dockerfile: dockerfile-setup
+    depends_on:
+      - postgres
+    volumes:
+      - ./database:/app
+    networks:
+      - app
+    command: >
+      bash -c "until PGPASSWORD=$${POSTGRES_PASSWORD} psql -h $${POSTGRES_HOST:-database} -U $${POSTGRES_USER} -d $${POSTGRES_DB}; do
+            >&2 echo 'Postgres está indisponível - aguardando';
+            sleep 1;
+          done;
+          >&2 echo 'Postgres está disponível - executando comando';
+          python setup_database_script.py"
+    env_file:
+      - .env
 
   api:
     build: api
     ports:
       - 8000:8000
+    depends_on:
+      - postgres
     volumes:
       - ./api:/app
     restart: always
     networks:
       - app
     container_name: api
+    env_file:
+      - .env
 
 networks:
   app:
