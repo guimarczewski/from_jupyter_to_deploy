@@ -20,6 +20,9 @@ jobs:
       - name: List Directory Contents
         run: ls -la
 
+      - name: Up API
+        run: uvicorn api.app.main:app
+
       - name: Run Tests  
         run:
           pytest -v api/tests/tests.py
