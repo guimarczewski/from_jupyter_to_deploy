@@ -51,3 +51,7 @@ jobs:
           DB_HOST: ${{ secrets.DB_HOST }}
           DB_PORT: ${{ secrets.DB_PORT }}
           
+      - name: Setup Streamlit
+        uses: streamlit/streamlit-app-action@v0.0.3
+        with:
+          app-path: streamlit/main.py
