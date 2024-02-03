@@ -41,15 +41,6 @@ jobs:
       - name: List Directory Contents
         run: ls -la
 
-      - name: Up API
-        run: uvicorn api.app.main:app
-        env:
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-
       - name: Run Tests  
         run:
           pytest -v api/tests/tests.py
