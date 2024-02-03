@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./01-table_produtos.sql:/docker-entrypoint-initdb.d/01-table_produtos.sql
+      - ./02-produtos.sql:/docker-entrypoint-initdb.d/02-produtos.sql
+    environment:
+      POSTGRES_PASSWORD: "minha_senha"
+      POSTGRES_USER: "meu_usuario"
+    ports:
+      - "5432:5432"
