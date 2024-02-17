@@ -12,6 +12,7 @@ Furthermore, the bank is connected to an interactive dashboard on Streamlit. Thi
 The project is also integrated into a CI/CD pipeline. Tests are run in GitHub Actions whenever a pull request is made, ensuring code quality and integrity. The deployment is carried out using Streamlit for the dashboard and Render for the PostgreSQL database and the API.
 
 To see the API and Dashboard running, you can access the following links:
+
 [API](https://api-workshop-ikez.onrender.com/docs#/)
 
 [Streamlit App](https://workshop-lista-database.streamlit.app/)
