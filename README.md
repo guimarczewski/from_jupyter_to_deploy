@@ -13,8 +13,8 @@ The project is also integrated into a CI/CD pipeline. Tests are run in GitHub Ac
 
 To see the API and Dashboard running, you can access the following links:
 [API](https://api-workshop-ikez.onrender.com/docs#/)
-[Streamlit App]([https://api-workshop-ikez.onrender.com/docs#/](https://workshop-lista-database.streamlit.app/))
 
+[Streamlit App](https://workshop-lista-database.streamlit.app/)
 
 ## Project Structure
 
