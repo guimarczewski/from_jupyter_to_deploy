@@ -58,7 +58,9 @@ This will start the application, and it will be accessible at:
 * `PUT /produtos/{produto_id}`: Update a product based on the produto_id input.
 * `DELETE /produtos/{produto_id}`: Remove a product based on the produto_id input.
 
-[![API]([https://github.com/guimarczewski/from_jupyter_to_deploy/raw/main/images/docs_api.PNG](https://github.com/guimarczewski/from_jupyter_to_deploy/blob/main/images/docs_api.png))]()
+[![API](https://github.com/guimarczewski/from_jupyter_to_deploy/raw/main/images/docs_api.PNG)]()
+
+[![Architecture](https://github.com/guimarczewski/modern-data-stack-stackacademy/raw/main/images/arquitetura.PNG)]()
 
 ## Code Snippets
 
