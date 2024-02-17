@@ -5,7 +5,11 @@
 
 ## Introduction
 
-The goal of this project is to refactor a starter file named `model_starter.py` and create an API using FastAPI for a Visual Question Answering (VQA) system. The system utilizes pretrained models from the HuggingFace Transformers library, specifically the `ViltProcessor` and `ViltForQuestionAnswering` models. Users can submit an image and a text-based question about the image, and the API will return an answer based on its analysis of both the image and text.
+This project involves creating and managing a product table in a PostgreSQL database. Using the Python FastAPI library, an API was developed to interact with the database, allowing CRUD (Create, Read, Update, Delete) operations on product data. Operations include GET to retrieve product information, POST to add new products, PUT to update existing product information, and DELETE to remove products.
+
+Furthermore, the bank is connected to an interactive dashboard on Streamlit. This dashboard allows you to view product data, such as the price of each product and various visualization options.
+
+The project is also integrated into a CI/CD pipeline. Tests are run in GitHub Actions whenever a pull request is made, ensuring code quality and integrity. The deployment is carried out using Streamlit for the dashboard and Render for the PostgreSQL database and the API.
 
 ## Project Structure
 
